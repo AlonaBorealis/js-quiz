@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Quiz</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="quiz-container">
+	<!-- WELCOME SCREEN -->
+	<section id="welcome-screen" class="quiz-section active">
+		<h1>Welcome to QUIZ</h1>
+		<button class="btn" id="show-admin-form-btn">show admin form</button>
+		<form id="admin-form" class="admin-form hidden">
+			<select name="action" id="admin-action">
+				<option value="post">Create (POST)</option>
+				<option value="put">Update (PUT)</option>
+				<option value="patch">Partial update (PATCH)</option>
+				<option value="delete">Delete (DELETE)</option>
+			</select>
+			<input type="text" id="question-input" placeholder="question">
+			<input type="text" id="option1" placeholder="Option 1">
+			<input type="text" id="option2" placeholder="Option 2">
+			<input type="text" id="option3" placeholder="Option 3">
+			<input type="text" id="option4" placeholder="Option 4">
+			<input type="number" id="correct-answer" placeholder="Correct Answer(0-3)">
+			<input type="text" id="explanation" placeholder="Explanation">
+			<input type="text" id="theme" placeholder="Theme (js, html, css)">
+			<button type="submit" class="btn">Submit</button>
+		</form>
+		<form id="player-form">
+			<div class="form-group">
+				<label for="player-name">Type your name</label>
+				<input type="text" id="player-name" name="player-name" required>
+			</div>
+			<select name="theme" id="questions-theme-select" class="btn" required>
+				<option value="html" selected>HTML</option>
+				<option value="css">CSS</option>
+				<option value="js">JavaScript</option>
+			</select>
+			<select name="limit" id="questions-limit-select" class="btn" required>
+				<option value="10" selected>Get 10 questions</option>
+				<option value="20">Get 20 questions</option>
+				<option value="50">Get 50 questions</option>
+				<option value="100">Get 100 questions</option>
+			</select>
+			<button type="submit" id="start-button" class="btn">Start game</button>
+		</form>
+	</section>
+
+	<!-- QUIZ QUESTIONS SCREEN -->
+	<section id="question-screen" class="quiz-section">
+		<div class="quiz-header">
+			<div class="player-info">
+				<span>Player: <span id="current-player">{playerName}</span></span>
+			</div>
+			<div class="quiz-progress">
+				<span>Question: <span id="current-question">{questionCount}</span> from
+					<span id="total-questions">{totalCount}</span></span>
+			</div>
+			<div class="quiz-score">
+				<span>Score: <span id="current-score">{scoreCount}</span></span>
+			</div>
+		</div>
+
+		<div id="question-container">
+			<h2 id="question-text">{question}</h2>
+			<div id="options-container">
+				<!--TEMPLATES WILL BE GENERATED-->
+			</div>
+		</div>
+		<div id="feedback-container" class="hidden">
+			<p id="feedback-text"></p>
+			<button id="next-button" class="btn">Next question</button>
+		</div>
+	</section>
+
+	<!--RESULTS SCREEN-->
+	<section id="result-screen" class="quiz-section">
+		<h2>Results of QUIZ</h2>
+		<div class="final-result">
+			<p>Congratulations, <span id="result-player-name">{playerName}</span>!</p>
+			<p>Your results: <span id="result-score">{countCorrectAnswers}</span> from
+				<span id="result-total">{totalCount}</span></p>
+			<p id="result-percentage">{percentage}</p>
+		</div>
+		<div id="result-actions">
+			<button id="restart-button" class="btn">RESTART</button>
+		</div>
+	</section>
+
+	<template id="option-template">
+		<div class="option">
+			<input type="radio" name="quiz-option" id="">
+			<label for=""></label>
+		</div>
+	</template>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
